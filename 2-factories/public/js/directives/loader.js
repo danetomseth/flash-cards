@@ -11,6 +11,9 @@ app.directive('loader', function() {
 app.directive('flashCard', function() {
 	return {
 		restrict: 'E',
-		templateUrl: '/js/directives/flashcard.html'
+		templateUrl: '/js/directives/flashcard.html',
+		scope: {
+			card: "="
+		}
 	}
 })

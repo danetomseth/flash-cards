@@ -9,7 +9,9 @@
         <script src="js/app.js"></script>
         <script src="js/controllers/MainController.js"></script>
         <script src="js/controllers/StatsController.js"></script>
+        <script src="js/controllers/newcard.ctrl.js"></script>
         <script src="js/factories/FlashCardsFactory.js"></script>
+        <script src="js/factories/newcard.factory.js"></script>
         <script src="js/factories/ScoreFactory.js"></script>
         <script src="js/directives/loader/loader.js"></script>
         <script src="js/directives/flash-card/flash-card.js"></script>
@@ -21,7 +23,14 @@
 
         <div ng-include="'templates/stats.html'">
         </div>
-
+        <div ng-controller="NewCardCtrl">
+        <form ng-submit="sendCard()">
+            <input type="text" ng-model="newCard.question"/>
+            <input type="text" ng-model="newCard.category"/>
+            <input type="text" ng-model="newCard.answers"/>
+            <input type="submit">Submit</input>
+        </form>
+        </div>
         <div ng-controller="MainController">
 
             <loader ng-show="cardsLoading"></loader>
@@ -48,6 +57,7 @@
             </div>
 
         </div>
+
 
     </body>
 

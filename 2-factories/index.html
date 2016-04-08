@@ -12,6 +12,7 @@
         <script src="js/factories/FlashCardFactory.js"></script>
         <script src="js/factories/ScoreFactory.js"></script>
         <script src="js/directives/loader.js"></script>
+        <script src="js/directives/boreder-directive.js"></script>
     </head>
 
     <body>
@@ -33,7 +34,7 @@
                 <button ng-click="getAllCards()" ng-class="{ active: currentCategory === null }" class="category-button">All</button>
                 <button ng-click="getCategoryCards(category)" ng-class="{ active: currentCategory === category }" ng-repeat="category in categories" class="category-button">{{ category }}</button>
                 <div ng-show="showCard" ng-repeat="flashCard in flashCards | orderBy:'question'" ng-controller="FlashCardController" class="flash-card">
-                  <flash-card></flash-card>
+                  <flash-card card="flashCard" border-hov ></flash-card>
                   </div>
                    
                 

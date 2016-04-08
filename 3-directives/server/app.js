@@ -1,6 +1,10 @@
 var path = require('path');
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+//var Chat = Promise.promisifyAll(mongoose.model('Chat'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 module.exports = app;
 
 var publicPath = path.join(__dirname, '../public');
@@ -26,3 +30,11 @@ app.get('/cards', function (req, res) {
     });
 
 });
+
+app.post('/newCard', function(req, res, next) {
+	console.log(req.body);
+	FlashCardModel.create(req.body).then(function(newCard) {
+		console.log('created', newCard);
+		res.json(newCard)
+	})
+})
